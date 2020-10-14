@@ -43,8 +43,10 @@ For the rest of the experiments, please refer the paper.
 * [```test.py```](test.py): Provides codes for testing trained and saved networks.
 
 # Usage
-In order to read the dataset fast and easily, NumPy compressed files (.npz) are used in implementation. For preparing the
-required files following commands can be executed:
+In order to read the dataset fast and easily, NumPy compressed files (.npz) are used in implementation. 
+
+### Preparing datasets
+For preparing the required files following commands can be executed:
 
 * for Covid Xray 5K test set:
 
@@ -56,10 +58,12 @@ required files following commands can be executed:
 
 The arguments can change depends on the dataset. Required files to be downloaded for preparation are given above.
 
+### Training the networks
 In order to train and test ResNet50 network following command can be executed:
 
 ``` $ python train.py -path=./data -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain=imagenet -test=True -epochs=100 -wce_b=0.75``` 
 
+### Testing the networks
 In order to test a pretrained ResNet50 network following command can be executed:
 
 ``` $ python test.py -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain_path=./pretraining/resnet50_chexpert``` 
