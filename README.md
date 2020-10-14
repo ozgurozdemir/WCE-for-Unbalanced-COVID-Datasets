@@ -61,7 +61,7 @@ The arguments can change depends on the dataset. Required files to be downloaded
 ### Training the networks
 In order to train and test ResNet50 network following command can be executed:
 
-``` $ python train.py -path=./data -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain=imagenet -test=True -epochs=100 -wce_b=0.75``` 
+``` $ python train.py -path=./data -dataset=Merge -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain=imagenet -test=True -epochs=100 -wce_b=0.75``` 
 
 ### Testing the networks
 In order to test a pretrained ResNet50 network following command can be executed:
