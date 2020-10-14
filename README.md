@@ -14,9 +14,9 @@ _Since December 2019 the world is infected by COVID-19 or Coronavirus disease, w
 To train the networks, 3 different dataset is used. The datasets and required folders & files for implementation is given
 below:
 
-* [Covid Xray 5K](https://github.com/shervinmin/DeepCovid/tree/master/data): train/test folders are required.
+* [Covid Xray 5K](https://github.com/shervinmin/DeepCovid/tree/master/data): &nbsp;&nbsp;&nbsp;&nbsp;train/test folders are required.
 * [Covid ChestXray](https://github.com/ieee8023/covid-chestxray-dataset): images folder and metadata.csv are required.
-* [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/): No Finding/Other Disease folders are required.
+* [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Finding/Other Disease folders are required.
 
 All images are resized to 256x256 and the pixel values are normalized.
 
@@ -28,9 +28,9 @@ The experiments are conducted on Covid5K test set. The best results are as given
 | ResNet50<sup>1</sup> |    1.000    |    0.9973   | 0.9987 |
 |   ACNN<sup>2</sup>   |    0.9750   |    0.9783   | 0.9767 |
 
-<sup>1</sup> _Trained with Covid Xray 5K+Covid ChestXray, pretrained with ImageNet, exploits weighted cross-entropy with ß=0.75_
+<sup>1</sup><sub>_Trained with Covid Xray 5K+Covid ChestXray, pretrained with ImageNet, exploits weighted cross-entropy with ß=0.75_</sub>
 
-<sup>2</sup> _Trained with Covid Xray 5K+Covid ChestXray, pretrained with CheXpert, exploits weighted cross-entropy with ß=0.75_
+<sup>2</sup><sup>_Trained with Covid Xray 5K+Covid ChestXray, pretrained with CheXpert, exploits weighted cross-entropy with ß=0.75_</sub>
 
 For the rest of the experiments, please refer the paper.
 
@@ -46,21 +46,23 @@ For the rest of the experiments, please refer the paper.
 In order to read the dataset fast and easily, NumPy compressed files (.npz) are used in implementation. For preparing the
 required files following commands can be executed:
 
-> for Covid Xray 5K test set:
+* for Covid Xray 5K test set:
 
->> ``` $ python prepare_dataset.py -path=./data -test=True```
+``` $ python prepare_dataset.py -path=./data -test=True```
 
-> for training set of datasets:
+* for training set of datasets:
 
->> ``` $ python prepare_dataset.py -path=./data -dataset=Covid5K```
+``` $ python prepare_dataset.py -path=./data -dataset=Covid5K```
 
 The arguments can change depends on the dataset. Required files to be downloaded for preparation are given above.
 
 In order to train and test ResNet50 network following command can be executed:
->> ``` $ python train.py -path=./data -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain=imagenet -test=True -epochs=100 -wce_b=0.75``` 
+
+``` $ python train.py -path=./data -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain=imagenet -test=True -epochs=100 -wce_b=0.75``` 
 
 In order to test a pretrained ResNet50 network following command can be executed:
->> ``` $ python test.py -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain_path=./pretraining/resnet50_chexpert``` 
+
+``` $ python test.py -test_path=./data/Covid5K/test/ -model=resnet50 -pretrain_path=./pretraining/resnet50_chexpert``` 
 
 # Citation
 _To be shared once the proceedings of the conference is published_
